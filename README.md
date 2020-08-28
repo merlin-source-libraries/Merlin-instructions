@@ -24,7 +24,9 @@ $ sudo ./install.sh /opt/Merlin/
 
 When using a Merlin library in one's project, it may be inconvenient to have to specify the Merlin _include_ and _lib_ directories paths in the compilation command (e.g. `-I/opt/Merlin/include` and `-L/opt/Merlin/lib`).
 
-We would advise to edit the _.bashrc_ file (under Linux) and set the `CPLUS_INCLUDE_PATH` and `LD_LIBRARY_PATH` environment variables (at least for GCC g++) to let respectively the preprocessor and the linker find the Merlin installation without explicit compilation arguments anymore.
+We would advise to edit the _.bashrc_ file (under Linux) and set the `CPLUS_INCLUDE_PATH` and `LIBRARY_PATH` environment variables (at least for GCC g++) to let respectively the preprocessor and the linker find the Merlin installation without explicit compilation arguments anymore.
+
+Moreover it is also recommended to set the `LD_LIBRARY_PATH` environment variable in order to let the loader find the shared libraries at runtime.
 
 **Example:**
 
@@ -32,6 +34,7 @@ We would advise to edit the _.bashrc_ file (under Linux) and set the `CPLUS_INCL
 ```
 export MERLIN_INSTALL_DIR=/opt/Merlin/
 export CPLUS_INCLUDE_PATH=${MERLIN_INSTALL_DIR}include:$CPLUS_INCLUDE_PATH
+export LIBRARY_PATH=${MERLIN_INSTALL_DIR}lib:$LIBRARY_PATH
 export LD_LIBRARY_PATH=${MERLIN_INSTALL_DIR}lib:$LD_LIBRARY_PATH
 ```
 
